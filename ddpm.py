@@ -35,7 +35,8 @@ class Diffusion:
 
     def sample_timesteps(self, n):
         return torch.randint(low=1, high=self.noise_steps, size=(n,))
-
+    
+    # 训练一个epoch后, 采样n张图片从噪声到训练数据集分布.
     def sample(self, model, n):
         logging.info(f"Sampling {n} new images....")
         model.eval()
